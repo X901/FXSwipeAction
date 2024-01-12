@@ -1,4 +1,6 @@
-<img src="https://github.com/X901/FXSwipeAction/assets/16876982/4e640ccb-9e52-46a9-ab24-cd09b278306e" width=80% height=80%>
+<div align="center">
+    <img src="https://github.com/X901/FXSwipeAction/assets/16876982/4e640ccb-9e52-46a9-ab24-cd09b278306e" width="80%" height="80%">
+</div>
 
 <p><h1 align="left">FxSwipeAction</h1></p>
 <p><h4>A SwiftUI library for a uniqe and customizable SwipeAction</h4></p>
