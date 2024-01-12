@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD11251E2B4719B10074A27B /* StoreCheckoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11251D2B4719B10074A27B /* StoreCheckoutApp.swift */; };
+		FD11251E2B4719B10074A27B /* FXSwipeActionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11251D2B4719B10074A27B /* FXSwipeActionDemo.swift */; };
 		FD1125202B4719B10074A27B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11251F2B4719B10074A27B /* ContentView.swift */; };
 		FD1125222B4719B20074A27B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD1125212B4719B20074A27B /* Assets.xcassets */; };
 		FD1125252B4719B20074A27B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD1125242B4719B20074A27B /* Preview Assets.xcassets */; };
@@ -16,7 +16,7 @@
 
 /* Begin PBXFileReference section */
 		FD11251A2B4719B10074A27B /* FXSwipeActionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXSwipeActionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD11251D2B4719B10074A27B /* StoreCheckoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCheckoutApp.swift; sourceTree = "<group>"; };
+		FD11251D2B4719B10074A27B /* FXSwipeActionDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXSwipeActionDemo.swift; sourceTree = "<group>"; };
 		FD11251F2B4719B10074A27B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FD1125212B4719B20074A27B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD1125242B4719B20074A27B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		FD11251C2B4719B10074A27B /* FXSwipeActionDemo */ = {
 			isa = PBXGroup;
 			children = (
-				FD11251D2B4719B10074A27B /* StoreCheckoutApp.swift */,
+				FD11251D2B4719B10074A27B /* FXSwipeActionDemo.swift */,
 				FD11251F2B4719B10074A27B /* ContentView.swift */,
 				FD1125212B4719B20074A27B /* Assets.xcassets */,
 				FD1125232B4719B20074A27B /* Preview Content */,
@@ -147,7 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1125202B4719B10074A27B /* ContentView.swift in Sources */,
-				FD11251E2B4719B10074A27B /* StoreCheckoutApp.swift in Sources */,
+				FD11251E2B4719B10074A27B /* FXSwipeActionDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
