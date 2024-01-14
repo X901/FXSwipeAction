@@ -73,7 +73,6 @@ public struct FXSwipeActionView: ViewModifier {
                     state = true
                 }
                 .onChanged { gesture in
-                    fxswipeViewGroupSelection.wrappedValue = id
                     
                     let total = gesture.translation.width + prevOffset
                     
@@ -84,6 +83,7 @@ public struct FXSwipeActionView: ViewModifier {
                 }
                      
                 .onEnded { _ in
+
                     if offset > FXSwipeActionView.minSwipeableWidth {
                         visibleButton = .leading
                         offset = FXSwipeActionButton.width
