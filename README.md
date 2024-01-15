@@ -102,13 +102,13 @@ Customization Options Explained:
 if you use it with VStack, you most add `.padding(.horizontal)` after `fxSwipeActions` for proper alignment.
 
 ### Step 5: FXSwipeViewGroup (Optional)
-To ensure that only one swipe action is active at a time within a group of views, wrap your entire view hierarchy with FXSwipeViewGroup. This is particularly useful in scenarios where multiple swipeable items are present, and you want to prevent multiple items from being swiped open simultaneously.
+To ensure that only one swipe action is active at a time within a group of views, wrap your entire view hierarchy with `FXSwipeViewGroup`. This is particularly useful in scenarios where multiple swipeable items are present, and you want to prevent multiple items from being swiped open simultaneously.
 
-When FXSwipeViewGroup is used, it manages the swipe state across all child views. As soon as a swipe action is initiated on one item, any previously opened swipe actions on other items will automatically close. This helps maintain a clean and user-friendly interface.
+When `FXSwipeViewGroup` is used, it manages the swipe state across all child views. As soon as a swipe action is initiated on one item, any previously opened swipe actions on other items will automatically close. This helps maintain a clean and user-friendly interface.
 
 Example Usage:
 
-Wrap your view, such as a NavigationStack or a list of items, with FXSwipeViewGroup. Add the .fxSwipeActions() modifier to individual items within this group as needed.
+Wrap your view, such as a `NavigationStack` or a list of items, with `FXSwipeViewGroup`. Add the `.fxSwipeActions()` modifier to individual items within this group as needed.
 
 ```swift
 FXSwipeViewGroup {
