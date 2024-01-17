@@ -214,7 +214,7 @@ enum VisibleButton {
 
 @available(iOS 15.0, *)
 public extension View {
-    func fxSwipeActions(
+    func swipeActions(
         leading: SwipeActionButton? = nil,
         trailing: SwipeActionButton? = nil) -> some View {
             modifier(SwipeActionView(leading: leading,

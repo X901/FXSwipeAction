@@ -57,7 +57,7 @@ struct ContentView: View {
                                 
                             }
 
-                            .fxSwipeActions(
+                            .swipeActions(
                                             leading:
                                                 SwipeActionButton(
                                                     iconType: !item.isComplete ? .system("checkmark.circle.fill") :
