@@ -75,25 +75,9 @@ public struct SwipeActionView: ViewModifier {
                 }
                 .onChanged { gesture in
                     
-                    var total: CGFloat = 0
-                    
                     if layoutDirection == .rightToLeft {
-
-                        if trailing != nil && gesture.translation.width < SwipeActionView.minSwipeableWidth {
-                            
-                            total = -gesture.translation.width + prevOffset
-                            
-                            if visibleButton == .leading || visibleButton == .trailing   {
-                                offset = 0
-                                
-                            } else {
-                                if (total > 0 && leading != nil) {
-                                    offset = total + SwipeActionView.minSwipeableWidth
-                                } else if  (total < 0 && trailing != nil) {
-                                    offset = total - SwipeActionView.minSwipeableWidth
-                                }
-                            }
-                        }
+                        
+                        calculateOnChangeForRTL(gesture: gesture)
                         
                     } else {
                         let total = gesture.translation.width + prevOffset
@@ -171,6 +155,48 @@ public struct SwipeActionView: ViewModifier {
         }
     }
     
+    private func calculateOnChangeForRTL(gesture: GestureStateGesture<DragGesture, Bool>.Value) {
+        var total: CGFloat = 0
+        
+        if leading != nil && trailing == nil {
+            let total = -gesture.translation.width + prevOffset
+            
+            if visibleButton == .leading {
+                offset = 0
+                
+            } else if (total > 0 && leading != nil) {
+                offset = total + SwipeActionView.minSwipeableWidth
+            }
+        }
+        
+        if trailing != nil && leading == nil {
+            let total = -gesture.translation.width + prevOffset
+            
+            if visibleButton == .trailing {
+                offset = 0
+                
+            } else if (total < 0 && trailing != nil) {
+                offset = total - SwipeActionView.minSwipeableWidth
+            }
+        }
+        
+        if trailing != nil && leading != nil && gesture.translation.width < SwipeActionView.minSwipeableWidth {
+            
+            total = -gesture.translation.width + prevOffset
+            
+            if visibleButton == .leading || visibleButton == .trailing   {
+                offset = 0
+                
+            } else {
+                if (total > 0 && leading != nil) {
+                    offset = total + SwipeActionView.minSwipeableWidth
+                } else if (total < 0 && trailing != nil) {
+                    offset = total - SwipeActionView.minSwipeableWidth
+                }
+            }
+        }
+    }
+    
     private func calculateContentOffset(geo: GeometryProxy) -> CGFloat {
         if offset > 0 { // Leading swipe
             return -geo.size.width + SwipeActionButton.width + swipeSpacing
@@ -218,7 +244,7 @@ public extension View {
         leading: SwipeActionButton? = nil,
         trailing: SwipeActionButton? = nil) -> some View {
             modifier(SwipeActionView(leading: leading,
-                                       trailing: trailing))
+                                     trailing: trailing))
         }
 }
 
