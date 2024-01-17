@@ -1,0 +1,96 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "22 Jan 2023" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "22 يناير 2023"
+          }
+        }
+      }
+    },
+    "23 Jan 2023" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "23 يناير 2023"
+          }
+        }
+      }
+    },
+    "25 Feb 2023" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "25 فبراير 2023"
+          }
+        }
+      }
+    },
+    "28 Apr 2023" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "28 أبريل 2023"
+          }
+        }
+      }
+    },
+    "Assign tasks for next week" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعيين المهام للأسبوع القادم"
+          }
+        }
+      }
+    },
+    "Discuss budget constraints" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مناقشة قيود الميزانية"
+          }
+        }
+      }
+    },
+    "Discuss budget UI/UX Des.." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مناقشة واجهة المستخدم/تجربة المستخدم للميزانية"
+          }
+        }
+      }
+    },
+    "John proposed moving the.." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اقترح جون نقل ال..."
+          }
+        }
+      }
+    },
+    "Reminders" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تذكيرات"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

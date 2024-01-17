@@ -9,41 +9,41 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public struct FXSwipeActionsStyleKey: EnvironmentKey {
-    public static var defaultValue: FXSwipeActionsTheme = FXSwipeActionsTheme()
+public struct SwipeActionsStyleKey: EnvironmentKey {
+    public static var defaultValue: SwipeActionsTheme = SwipeActionsTheme()
     
 }
 
 @available(iOS 15.0, *)
 public extension EnvironmentValues {
-    var fxSwipeActionsStyle: FXSwipeActionsTheme {
-        get { self[FXSwipeActionsStyleKey.self] }
-        set { self[FXSwipeActionsStyleKey.self] = newValue }
+    var SwipeActionsStyle: SwipeActionsTheme {
+        get { self[SwipeActionsStyleKey.self] }
+        set { self[SwipeActionsStyleKey.self] = newValue }
     }
 }
 
 @available(iOS 15.0, *)
 public extension View {
-    func fxSwipeActionsStyle(_ style: FXSwipeActionsTheme) -> some View {
-        self.environment(\.fxSwipeActionsStyle, style)
+    func swipeActionsStyle(_ style: SwipeActionsTheme) -> some View {
+        self.environment(\.SwipeActionsStyle, style)
     }
     
-    func fxSwipeActionsStyle(
-        main: FXSwipeActionsTheme.Main = .init(),
-        shadow: FXSwipeActionsTheme.Shadow = .init(),
-        style: FXSwipeActionsTheme.Style = .init()
+    func swipeActionsStyle(
+        main: SwipeActionsTheme.Main = .init(),
+        shadow: SwipeActionsTheme.Shadow = .init(),
+        style: SwipeActionsTheme.Style = .init()
     ) -> some View {
-        self.environment(\.fxSwipeActionsStyle, FXSwipeActionsTheme(main: main, shadow: shadow, style: style))
+        self.environment(\.SwipeActionsStyle, SwipeActionsTheme(main: main, shadow: shadow, style: style))
     }
 }
 
 @available(iOS 15.0, *)
-public struct FXSwipeActionsTheme {
+public struct SwipeActionsTheme {
     public let main: Main
     public let shadow: Shadow
     public let style: Style
 
-    public init(main: FXSwipeActionsTheme.Main = .init(), shadow: FXSwipeActionsTheme.Shadow = .init(), style: FXSwipeActionsTheme.Style = .init()) {
+    public init(main: SwipeActionsTheme.Main = .init(), shadow: SwipeActionsTheme.Shadow = .init(), style: SwipeActionsTheme.Style = .init()) {
         self.main = main
         self.shadow = shadow
         self.style = style
@@ -51,7 +51,7 @@ public struct FXSwipeActionsTheme {
 }
 
 @available(iOS 15.0, *)
-public extension FXSwipeActionsTheme {
+public extension SwipeActionsTheme {
     struct Main {
         public let cornerRadius: CGFloat?
         public let swipeSpacing: CGFloat?

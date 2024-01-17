@@ -12,6 +12,7 @@
 		FD1125222B4719B20074A27B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD1125212B4719B20074A27B /* Assets.xcassets */; };
 		FD1125252B4719B20074A27B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD1125242B4719B20074A27B /* Preview Assets.xcassets */; };
 		FDA144622B518803001CA56A /* FXSwipeAction in Frameworks */ = {isa = PBXBuildFile; productRef = FDA144612B518803001CA56A /* FXSwipeAction */; };
+		FDBD49FF2B566C6E00237D42 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FDBD49FE2B566C6E00237D42 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		FD11251F2B4719B10074A27B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FD1125212B4719B20074A27B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD1125242B4719B20074A27B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FDBD49FE2B566C6E00237D42 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		FD11251C2B4719B10074A27B /* FXSwipeActionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FDBD49FE2B566C6E00237D42 /* Localizable.xcstrings */,
 				FD11251D2B4719B10074A27B /* FXSwipeActionDemo.swift */,
 				FD11251F2B4719B10074A27B /* ContentView.swift */,
 				FD1125212B4719B20074A27B /* Assets.xcassets */,
@@ -136,6 +139,7 @@
 			files = (
 				FD1125252B4719B20074A27B /* Preview Assets.xcassets in Resources */,
 				FD1125222B4719B20074A27B /* Assets.xcassets in Resources */,
+				FDBD49FF2B566C6E00237D42 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

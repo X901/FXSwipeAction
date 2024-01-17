@@ -9,20 +9,20 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public struct FXSwipeViewGroupSelectionKey: EnvironmentKey {
+public struct SwipeViewGroupSelectionKey: EnvironmentKey {
     public static let defaultValue: Binding<UUID?> = .constant(nil)
 }
 
 @available(iOS 15.0, *)
 public extension EnvironmentValues {
-    var fxSwipeViewGroupSelection: Binding<UUID?> {
-        get { self[FXSwipeViewGroupSelectionKey.self] }
-        set { self[FXSwipeViewGroupSelectionKey.self] = newValue }
+    var SwipeViewGroupSelection: Binding<UUID?> {
+        get { self[SwipeViewGroupSelectionKey.self] }
+        set { self[SwipeViewGroupSelectionKey.self] = newValue }
     }
 }
 
 @available(iOS 15.0, *)
-public struct FXSwipeViewGroup<Content: View>: View {
+public struct SwipeViewGroup<Content: View>: View {
     @ViewBuilder var content: () -> Content
 
     @State var selection: UUID?
@@ -33,6 +33,6 @@ public struct FXSwipeViewGroup<Content: View>: View {
 
     public var body: some View {
         content()
-            .environment(\.fxSwipeViewGroupSelection, $selection)
+            .environment(\.SwipeViewGroupSelection, $selection)
     }
 }

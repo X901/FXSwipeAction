@@ -9,8 +9,8 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public struct FXSwipeActionButton: View, Identifiable {
-    @Environment(\.fxSwipeActionsStyle) private var theme
+public struct SwipeActionButton: View, Identifiable {
+    @Environment(\.SwipeActionsStyle) private var theme
 
     static let width: CGFloat = 40
     
@@ -47,7 +47,7 @@ public struct FXSwipeActionButton: View, Identifiable {
     public var body: some View {
         GeometryReader { geo in
             RoundedRectangle(cornerRadius: theme.main.cornerRadius ?? 0)
-                .frame(width: UIScreen.main.bounds.width - FXSwipeActionButton.width)
+                .frame(width: UIScreen.main.bounds.width - SwipeActionButton.width)
                 .frame(height: geo.size.height + (theme.main.padding ?? 10))
                 .offset(y: -((theme.main.padding ?? 10)/2))
                 .foregroundColor(tint)

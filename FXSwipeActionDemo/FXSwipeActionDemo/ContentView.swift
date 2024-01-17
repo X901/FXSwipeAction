@@ -13,8 +13,8 @@ struct ContentView: View {
     
     struct NoteItem: Identifiable {
         let id = UUID()
-        var note: String
-        var creationDate: String
+        var note: LocalizedStringKey
+        var creationDate: LocalizedStringKey
         var isComplete: Bool
     }
 
@@ -28,7 +28,7 @@ struct ContentView: View {
 
     var body: some View {
             
-        FXSwipeViewGroup {
+        SwipeViewGroup {
 
             NavigationStack {
 
@@ -37,6 +37,7 @@ struct ContentView: View {
                     Color(.systemGray6).ignoresSafeArea()
                     
                     VStack {
+                                                
                         List($notesArray) { $item in
                             
                             VStack(alignment: .leading, spacing: 5) {
@@ -58,7 +59,7 @@ struct ContentView: View {
 
                             .fxSwipeActions(
                                             leading:
-                                                FXSwipeActionButton(
+                                                SwipeActionButton(
                                                     iconType: !item.isComplete ? .system("checkmark.circle.fill") :
                                                             .system("xmark.circle.fill")
                                                     ,
@@ -72,7 +73,7 @@ struct ContentView: View {
                                                     }, tint: !item.isComplete ? .green : .orange),
                                             
                                             trailing:
-                                                FXSwipeActionButton(
+                                                SwipeActionButton(
                                                     iconType:.system("trash.fill"),
                                                     type: .trailing,
                                                     action: {
@@ -84,7 +85,7 @@ struct ContentView: View {
                                                     }, tint: .red)
                                             
                             )
-                            .fxSwipeActionsStyle(
+                            .swipeActionsStyle(
                                 main: .init(cornerRadius: 20, swipeSpacing: 0, padding: 12),
                                 shadow: .init(shadowColor: .gray.opacity(0.2), shadowRadius: 8, shadowOffset: CGSize(width: 0, height: 10)),
                                   style: .init(backgroundColor: .white))

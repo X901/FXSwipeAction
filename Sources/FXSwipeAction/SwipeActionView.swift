@@ -9,14 +9,14 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public struct FXSwipeActionView: ViewModifier {
-    @Environment(\.fxSwipeActionsStyle) private var theme
-    @Environment(\.fxSwipeViewGroupSelection) var fxswipeViewGroupSelection
-
+public struct SwipeActionView: ViewModifier {
+    @Environment(\.SwipeActionsStyle) private var theme
+    @Environment(\.SwipeViewGroupSelection) var fxswipeViewGroupSelection
+    
     private static let minSwipeableWidth = (UIScreen.main.bounds.width * 0.1)
     @State private var swipeSpacing: CGFloat = 0
-    let leading: FXSwipeActionButton?
-    let trailing: FXSwipeActionButton?
+    let leading: SwipeActionButton?
+    let trailing: SwipeActionButton?
     
     @GestureState private var dragGestureActive: Bool = false
     
@@ -25,10 +25,11 @@ public struct FXSwipeActionView: ViewModifier {
     @State private var id: UUID =  UUID()
     
     @State private var visibleButton: VisibleButton = .none
-
-
-    init(leading: FXSwipeActionButton? = nil,
-         trailing: FXSwipeActionButton? = nil) {
+    
+    @Environment(\.layoutDirection) private var layoutDirection
+    
+    init(leading: SwipeActionButton? = nil,
+         trailing: SwipeActionButton? = nil) {
         self.leading = leading
         self.trailing = trailing
     }
@@ -74,28 +75,56 @@ public struct FXSwipeActionView: ViewModifier {
                 }
                 .onChanged { gesture in
                     
-                    let total = gesture.translation.width + prevOffset
+                    var total: CGFloat = 0
                     
-                    if (total > 0 && leading != nil) || (total < 0 && trailing != nil) {
-                        offset = total
+                    if layoutDirection == .rightToLeft {
+
+                        if trailing != nil && gesture.translation.width < SwipeActionView.minSwipeableWidth {
+                            
+                            total = -gesture.translation.width + prevOffset
+                            
+                            if visibleButton == .leading || visibleButton == .trailing   {
+                                offset = 0
+                                
+                            } else {
+                                if (total > 0 && leading != nil) {
+                                    offset = total + SwipeActionView.minSwipeableWidth
+                                } else if  (total < 0 && trailing != nil) {
+                                    offset = total - SwipeActionView.minSwipeableWidth
+                                }
+                            }
+                        }
+                        
+                    } else {
+                        let total = gesture.translation.width + prevOffset
+                        
+                        if (total > 0 && leading != nil) || (total < 0 && trailing != nil) {
+                            offset = total
+                        }
+                        
                     }
-                    
                 }
                      
                 .onEnded { _ in
-
-                    if offset > FXSwipeActionView.minSwipeableWidth {
+                    
+                    if offset > SwipeActionView.minSwipeableWidth {
                         visibleButton = .leading
-                        offset = FXSwipeActionButton.width
+                        offset = SwipeActionButton.width
                         
-                    } else if offset < -FXSwipeActionView.minSwipeableWidth {
+                        if layoutDirection == .rightToLeft {
+                            prevOffset = -offset
+                        } else {
+                            prevOffset = offset
+                        }
+                        
+                    } else if offset < -SwipeActionView.minSwipeableWidth {
                         visibleButton = .trailing
-                        offset = -FXSwipeActionButton.width
+                        offset = -SwipeActionButton.width
+                        prevOffset = offset
                         
                     } else {
                         reset()
                     }
-                    prevOffset = offset
                     
                 }
                      
@@ -104,8 +133,8 @@ public struct FXSwipeActionView: ViewModifier {
                 if newValue == true {
                     fxswipeViewGroupSelection.wrappedValue = id
                 }
-
-                 }
+                
+            }
             
             .onChange(of: fxswipeViewGroupSelection.wrappedValue) { newValue in
                 
@@ -117,8 +146,8 @@ public struct FXSwipeActionView: ViewModifier {
                     fxswipeViewGroupSelection.wrappedValue = nil
                 }
                 
-                   }
-               
+            }
+            
         }
         .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
@@ -144,9 +173,9 @@ public struct FXSwipeActionView: ViewModifier {
     
     private func calculateContentOffset(geo: GeometryProxy) -> CGFloat {
         if offset > 0 { // Leading swipe
-            return -geo.size.width + FXSwipeActionButton.width + swipeSpacing
+            return -geo.size.width + SwipeActionButton.width + swipeSpacing
         } else if offset < 0 { // Trailing swipe
-            return (-geo.size.width - FXSwipeActionButton.width - 15) - swipeSpacing
+            return (-geo.size.width - SwipeActionButton.width - 15) - swipeSpacing
         } else {
             return 0
         }
@@ -158,7 +187,7 @@ public struct FXSwipeActionView: ViewModifier {
         visibleButton = .none
     }
     
-    private func button(for button: FXSwipeActionButton?) -> some View {
+    private func button(for button: SwipeActionButton?) -> some View {
         button?
             .onTapGesture {
                 button?.action()
@@ -186,9 +215,9 @@ enum VisibleButton {
 @available(iOS 15.0, *)
 public extension View {
     func fxSwipeActions(
-        leading: FXSwipeActionButton? = nil,
-        trailing: FXSwipeActionButton? = nil) -> some View {
-            modifier(FXSwipeActionView(leading: leading,
+        leading: SwipeActionButton? = nil,
+        trailing: SwipeActionButton? = nil) -> some View {
+            modifier(SwipeActionView(leading: leading,
                                        trailing: trailing))
         }
 }
