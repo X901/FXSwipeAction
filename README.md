@@ -11,7 +11,8 @@ FxSwipeAction is a SwiftUI library that enables developers to easily add swipe a
 * **Versatile**: Enable swipe actions on any SwiftUI view, including List and VStack.
 * **Icon Support**: Add custom icons or SF Symbols to swipe actions for a more intuitive interface.
 * **Fully Customizable**: Tailor the appearance of swipe actions to match your app's design.
-* **Intelligent Interaction**: Swipe actions automatically close when interacting with other items in FXSwipeViewGroup.
+* **Intelligent Interaction**: Swipe actions automatically close when interacting with other items in SwipeViewGroup.
+* RTL Support: Comprehensive right-to-left (RTL) language support, ensuring seamless swipe action integration for both RTL and LTR layouts.
 
 
 # Usage
@@ -22,17 +23,17 @@ FxSwipeAction is a SwiftUI library that enables developers to easily add swipe a
 import FxSwipeAction
 ```
 
-### Step 2: add `fxSwipeActions`
+### Step 2: add `swipeActions`
 
 Add swipe actions to your view. You can add a single action to either the leading or trailing side, or to both. To ensure a unique and user-friendly experience, it's recommended to use only one action per side.
 
-**Important Notice:** Add a frame height after `fxSwipeActions`. The library uses `GeometryReader` to determine its size, so setting the frame before might not work as expected.
+**Important Notice:** Add a frame height after `swipeActions`. The library uses `GeometryReader` to determine its size, so setting the frame before might not work as expected.
 
 
 ```swift
 CarwView()
-.fxSwipeActions(
-    leading: FXSwipeActionButton(
+.swipeActions(
+    leading: SwipeActionButton(
         iconType: .system("checkmark.circle.fill"),
         type: .leading,
         action: {
@@ -40,7 +41,7 @@ CarwView()
         }, 
         tint: .green
     ),
-    trailing: FXSwipeActionButton(
+    trailing: SwipeActionButton(
         iconType: .system("trash.fill"),
         type: .trailing,
         action: {
@@ -56,13 +57,13 @@ CarwView()
 
 ### Step 3: Customize (Optional)
 
-Customize the look and feel of your swipe actions using the `fxSwipeActionsStyle` modifier. This feature offers a wide range of customization options, allowing you to fine-tune the appearance of the swipe actions and content to match your app's design language. Here's a breakdown of the customization options:
+Customize the look and feel of your swipe actions using the `swipeActionsStyle` modifier. This feature offers a wide range of customization options, allowing you to fine-tune the appearance of the swipe actions and content to match your app's design language. Here's a breakdown of the customization options:
 
 
 
 ```swift
-// fxSwipeActions ...
-.fxSwipeActionsStyle(
+// swipeActions ...
+.swipeActionsStyle(
     main: .init(
         cornerRadius: 20, // Rounds the corners of the swipe action button
         swipeSpacing: 0,  // Sets the space between the content and the swipe action button
@@ -99,23 +100,23 @@ Customization Options Explained:
 `backgroundColor`: Unlike the other properties, this sets the background color of the content that the swipe actions are applied to, not the swipe actions themselves. This can be useful for maintaining a consistent look for your content.
 
 ### Step 4: for using it with VStsck
-if you use it with VStack, you most add `.padding(.horizontal)` after `fxSwipeActions` for proper alignment.
+if you use it with VStack, you most add `.padding(.horizontal)` after `swipeActions` for proper alignment.
 
 ### Step 5: FXSwipeViewGroup (Optional)
-To ensure that only one swipe action is active at a time within a group of views, wrap your entire view hierarchy with `FXSwipeViewGroup`. This is particularly useful in scenarios where multiple swipeable items are present, and you want to prevent multiple items from being swiped open simultaneously.
+To ensure that only one swipe action is active at a time within a group of views, wrap your entire view hierarchy with `SwipeViewGroup`. This is particularly useful in scenarios where multiple swipeable items are present, and you want to prevent multiple items from being swiped open simultaneously.
 
-When `FXSwipeViewGroup` is used, it manages the swipe state across all child views. As soon as a swipe action is initiated on one item, any previously opened swipe actions on other items will automatically close. This helps maintain a clean and user-friendly interface.
+When `SwipeViewGroup` is used, it manages the swipe state across all child views. As soon as a swipe action is initiated on one item, any previously opened swipe actions on other items will automatically close. This helps maintain a clean and user-friendly interface.
 
 Example Usage:
 
-Wrap your view, such as a `NavigationStack` or a list of items, with `FXSwipeViewGroup`. Add the `.fxSwipeActions()` modifier to individual items within this group as needed.
+Wrap your view, such as a `NavigationStack` or a list of items, with `SwipeViewGroup`. Add the `.swipeActions()` modifier to individual items within this group as needed.
 
 ```swift
-FXSwipeViewGroup {
+SwipeViewGroup {
     NavigationStack {
         // Your content here...
         // For example, a card view with swipe actions
-        .fxSwipeActions()
+        .swipeActions()
     }
 }
 
